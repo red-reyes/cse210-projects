@@ -11,14 +11,14 @@ class Program
         {
             //generate random numbers between 1 and 100 for the magic number
             Random randomGenerator = new Random();
-            int magicNumber = randomGenerator.Next(1, 21);
+            int magicNumber = randomGenerator.Next(1, 101);
 
             //initialize guess and count guesses
             int guess = -1;
             int guessCount = 0;
 
             Console.WriteLine("Hello, please try this 'Guess My Number' game.");
-            Console.WriteLine("Guess the magic number between 1 and 20.");
+            Console.WriteLine("Guess the magic number between 1 and 100.");
 
             //loop until correct
             while (guess != magicNumber)
