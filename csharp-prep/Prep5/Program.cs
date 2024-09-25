@@ -10,7 +10,7 @@ class Program
         string userName = PromptUserName();
         int favoriteNumber = PromptUserNumber();
 
-        int squaredNumber = squaredNumber(favoriteNumber);
+        int squaredNumber = SquareNumber(favoriteNumber);
 
         DisplayResult(userName, squaredNumber);
     }
