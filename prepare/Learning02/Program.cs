@@ -15,7 +15,7 @@ class Program
        //Methods, display job details
        public void Display()
        {
-        Console.WriteLine($"{jobTitle} ({_company}) {_startYear}-{_endYear}");
+        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}");
        }
 
     }
