@@ -1,26 +1,33 @@
 using System;
 
-public class Entry;
+public class Entry
 {
-    private string _date;
+    private DateTime _date;
     private string _promptText;
     private string _entryText;
 
-    public Entry(string date, string promtText, string entryText)
+    //parameter and field assignments
+    public Entry(DateTime date, string promptText, string entryText)
     {
-        _date = date;
-        _promptText = prompText;
-        entryText = entryText;
+        _date = date; //for current date
+        _promptText = promptText;
+        _entryText = entryText;
     }
 
-    public string Date => _date;
+    //public properties to access private fields
+    public DateTime Date => _date;
     public string PromptText => _promptText;
-    publics string EntryText => _entryText;
+    public string EntryText => _entryText;
     
+    //method to displpay entry
     public void Display()
     {
         Console.WriteLine($"Date: {_date}");
-        Console.WriteLine($"Prompt: {_prompText}");
-        COnsole.WriteLine($"Entry: {_entryText}");
+        Console.WriteLine($"Prompt: {_promptText}");
+        Console.WriteLine($"Entry: {_entryText}");
+    }
+    public override string ToString()
+    {
+        return $"{_date}|{_promptText}|{_entryText}";
     }
 }
