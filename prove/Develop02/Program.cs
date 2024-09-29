@@ -4,7 +4,8 @@ class Program
     static void Main(string[]args)
     {
         Journal journal = new Journal();
-        string filename = "myjournal.txt";
+        string filename = Path.Combine(Environment.GetFolderPath
+        (Environment.SpecialFolder.UserProfile),"myjournal.txt");
         Console.WriteLine($"Using file: {filename}");
 
         while (true)
@@ -18,7 +19,6 @@ class Program
             Console.WriteLine("Select an option");
 
             string choice = Console.ReadLine();
-
             switch (choice)
             {
                 case "1":
