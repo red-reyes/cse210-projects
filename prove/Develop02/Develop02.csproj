@@ -9,18 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <_SourceItemssToCopyToOutputDirectory Include="Assets\**\*.*"/>
-    </ItemGrup>
+    <_SourceItemsToCopyToOutputDirectory Include="Assets\**\*.*"/>
+  </ItemGroup>
 
     <Target Name="CopyFiles" AfterTargets="Build">
       <Copy
-         SourceFiles="@(_SourceItemsToCopyToOutputDirectory)"
-          DestinationFiles="@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')"
-          OverwriteReadOnlyFiles="true"
-          Retries="5"
-          RetryDelayMilliseconds="500"
-          UseHardlinksIfPossible="true"
-          UseSymboliclinksIfPossible="false" />
+        SourceFiles="@(_SourceItemsToCopyToOutputDirectory)"
+        DestinationFiles="@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')"
+        OverwriteReadOnlyFiles="true"
+        Retries="5"
+        RetryDelayMilliseconds="500"
+        UseHardlinksIfPossible="true"
+        UseSymboliclinksIfPossible="false" />
     </Target>
 
 </Project>
