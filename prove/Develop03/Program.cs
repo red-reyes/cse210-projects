@@ -65,6 +65,7 @@ class Program
             }
         else if (selectedScripture.IsCompletelyUnhidden())
             {
+                Console.Clear();
                 Console.WriteLine("All words are revealead.");
             }
     }
