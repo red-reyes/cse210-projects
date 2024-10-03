@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         //create scripture verses
-        Reference reference1 = new Reference ("Psalm", 3,9);
+        Reference reference1 = new Reference ("Psalm", 37, 3,9);
         Scripture scripture1 = new Scripture (reference1,  "3. Trust in the Lord, and do good; so shalt thou dwell in the land, and verily thou shalt be fed.\n" +
             "4. Delight thyself also in the Lord; and he shall give thee the desires of thine heart.\n" +
             "5. Commit thy way unto the Lord; trust also in him; and he shall bring it to pass.\n" +
