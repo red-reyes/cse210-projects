@@ -38,11 +38,11 @@ public class Scripture
     //method to get display text (refrence & scriptures)
     public string GetDisplayText()
     {
-        string scriptureText = _reference.GetDisplayText() + "/n";
+        string scriptureText = _reference.GetDisplayText() + "\n";
 
         foreach (Word word in _words)
         {
-            scriptureText += word.GetDisplayText() + "";
+            scriptureText += word.GetDisplayText() + " ";
         }
         return scriptureText.Trim(); //method is used to remove any leading and trailing whitespace characters
     }
