@@ -39,22 +39,33 @@ class Program
         Console.WriteLine(selectedScripture.GetDisplayText());
 
         //prompt enter or quit
-        Console.WriteLine("\nPress Enter to hide words, or type 'quit' to exit.");
+        Console.WriteLine("\nPress Enter to hide words,  'u' to unhide words or type 'quit' to exit.");
         string userInput = Console.ReadLine();
 
         if (userInput.ToLower() == "quit")
-        {
-            break;
-        }
-        //hide random words in the scriptures
-        selectedScripture.HideRandomWords(3); //hide 3 words each time
+            {
+                break;
+            }
+        else if (userInput.ToLower() == "u") //unhide words
+            {
+                selectedScripture.UnhideRandomWords(1);//unhide only 1
+            }
+        else // to hide words
+            {
+            //hide random words in the scriptures
+                selectedScripture.HideRandomWords(3); //hide 3 words each time
+            }
     }
 
-    //final message
-    if (selectedScripture.IsCompletelyHidden())
-        {
-            Console.Clear();
-            Console.WriteLine("All words are hidden.");
-        }
+        //final message
+        if (selectedScripture.IsCompletelyHidden())
+            {
+                Console.Clear();
+                Console.WriteLine("All words are hidden.");
+            }
+        else if (selectedScripture.IsCompletelyUnhidden())
+            {
+                Console.WriteLine("All words are revealead.");
+            }
     }
 }

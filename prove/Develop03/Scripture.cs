@@ -35,6 +35,7 @@ public class Scripture
             }
         }
     }
+
     //method to get display text (refrence & scriptures)
     public string GetDisplayText()
     {
@@ -47,6 +48,23 @@ public class Scripture
         return scriptureText.Trim(); //method is used to remove any leading and trailing whitespace characters
     }
 
+    //method to unhide random hidden words
+    public void UnhideRandomWords (int numberToUnhide)
+    {
+        Random random = new Random();
+        int wordsUnHidden = 0;
+
+        while (wordsUnHidden < numberToUnhide)
+        {
+            int randomIndex = random.Next(0, _words.Count);
+            if (_words[randomIndex].IsHidden())
+            {
+                _words[randomIndex].Show();
+                wordsUnHidden++;
+            }
+        }
+    }
+    
     //check if all words are hidden
     public bool IsCompletelyHidden()
     {
@@ -58,5 +76,18 @@ public class Scripture
             }
         }
         return true;
+    }
+
+    //check if all words are unhidden
+    public bool IsCompletelyUnhidden()
+    {
+        foreach (Word word in _words)
+        {
+            if (!word.IsHidden()) //if any word is still hidden, false
+            {
+                return false;
+            }
+        }
+        return true; // all words unhidden
     }
 }
