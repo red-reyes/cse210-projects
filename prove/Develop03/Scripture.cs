@@ -77,17 +77,4 @@ public class Scripture
         }
         return true;
     }
-
-    //check if all words are unhidden
-    public bool IsCompletelyUnhidden()
-    {
-        foreach (Word word in _words)
-        {
-            if (!word.IsHidden()) //if any word is still hidden, false
-            {
-                return false;
-            }
-        }
-        return true; // all words unhidden
-    }
 }

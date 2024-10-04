@@ -29,7 +29,10 @@ class Program
     Random rand = new Random();
     Scripture selectedScripture = scriptures[rand.Next(scriptures.Length)];
 
-    //loop until the entire scripture is hidden
+    //flag to track any words have been hidden
+    bool hasHiddenWords = false;
+
+    //loop until the entire scripture is hidden or unhidden
     while (!selectedScripture.IsCompletelyHidden())
     {
         //clear the console
@@ -38,35 +41,39 @@ class Program
         //display the scripture
         Console.WriteLine(selectedScripture.GetDisplayText());
 
-        //prompt enter or quit
-        Console.WriteLine("\nPress Enter to hide words,  'u' to unhide words or type 'quit' to exit.");
-        string userInput = Console.ReadLine();
+        //prompt enter,unhide or quit
 
-        if (userInput.ToLower() == "quit")
+        if (hasHiddenWords)
+        {
+            Console.WriteLine("\nPress Enter to hide words,  'u' to unhide words or type 'quit' to exit.");
+        }
+        else
+        {
+            Console.WriteLine("\nPress Enter to hide words or type 'quit to exit.");
+        }
+        string userInput = Console.ReadLine().ToLower();
+
+        if (userInput == "quit")
             {
                 break;
             }
-        else if (userInput.ToLower() == "u") //unhide words
+        else if (userInput == "u" && hasHiddenWords) 
             {
                 selectedScripture.UnhideRandomWords(1);//unhide only 1
             }
-        else // to hide words
+            else if(userInput == "")
             {
             //hide random words in the scriptures
                 selectedScripture.HideRandomWords(3); //hide 3 words each time
+                hasHiddenWords = true; //flag to indicate some words have been hidden
             }
     }
-
         //final message
         if (selectedScripture.IsCompletelyHidden())
             {
                 Console.Clear();
                 Console.WriteLine("All words are hidden.");
             }
-        else if (selectedScripture.IsCompletelyUnhidden())
-            {
-                Console.Clear();
-                Console.WriteLine("All words are revealead.");
-            }
+
     }
 }
