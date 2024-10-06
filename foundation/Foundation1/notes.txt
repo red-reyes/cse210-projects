@@ -1,0 +1,56 @@
+-you will only need to worry about:
+    1. store the information about a video and the comments
+
+Program Specification
+
+-have a class for a Video 
+    - to track the title, author, and length (in seconds) of the video. 
+    - Each video also has responsibility to store a list of comments
+    - have a method to return the number of comments
+    
+    - A comment should be defined by the Comment class
+        - has the responsibility for tracking both the name of the person who made the comment and the text of the comment.
+
+Write a program that
+    - creates 3-4 videos, 
+    - sets the appropriate values, 
+    - and for each one, add a list of 3-4 comments (with the commenter's name and text)
+    - Put each of these videos in a list.
+
+    - iterate through the list of videos
+    - for each one, display the title, author, length, number of comments (from the method) 
+    - then list out all of the comments for that video. Repeat this display for each video in the list.
+
+-------------------------------------------------------------------------------------------------------------
+User Interaction
+The focus of the Foundation programs is ***to help you design and build the classes and work with the relationships among these classes***. With that in mind, ***you do not need to create a menu system or a user interface***. Instead, your ***Program.cs file should create the required objects, set their values, and display them as specified, WITHOUT ANY USER INTERACTION***.
+
+----------------------------------------------------------------------------------------------------------------
+Showing Creativity
+Because the purpose of these Foundation programs is to help you ***practice the principles of the course*** in a very direct way, ***you are not expected to show creativity*** and exceed the core requirements the way you have in previous projects. You can earn 100% by completing the requirements as specified.
+
+Develop the Program
+In the course repository, ***find the Foundation1*** project in the foundation folder and write your program there.
+
+Submission Instructions
+Because this project does not have any user interaction, for submission, you will ***include a screenshot of your program execution in your GitHub repository alongside the corresponding code***. (See below for detailed instructions about capturing a screenshot.)
+
+Once you have added your screenshot to your GitHub repository, return to Canvas to submit a link to your GitHub repo.
+
+Capturing a Screenshot
+To capture and upload screenshot of the program execution, follow these steps:
+
+Run your program in VS Code.
+Maximize your VS Code window and ensure entire program execution is visible.
+Capture screenshot.
+On Windows:
+Open Snipping Tool (Windows key + Shift + S).
+Select 'Fullsreen Snip' from context menu.
+Click on notification that appears.
+Select the Save icon in the upper-right of window, select your Desktop folder, then click Save.
+On Mac:
+Capture screenshot with Command + Shift + 3 (screenshot will be automatically saved to your Desktop).
+Open your Github Repository in your internet browser, navigate to the folder containing your project code.
+Click Add File-> Upload Files.
+Drag and drop screenshot from your Desktop to your GitHub window.
+Click Commit changes.
