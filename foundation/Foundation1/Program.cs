@@ -22,7 +22,7 @@ class Program
        //these comments will be added in the list of comments
 
        //for video 1
-       List<Comment> commentsForVideo1 = new List<Comment>
+       List<Comment> comments1 = new List<Comment>
        {
         new Comment("Person1", "Comment1"),
         new Comment("Person2", "Comment2"),
@@ -30,14 +30,14 @@ class Program
         new Comment("Person4", "Comment4")
        };
        //for video 2
-       List<Comment> commentsForVideo2 = new List<Comment>
+       List<Comment> comments2 = new List<Comment>
        {
         new Comment("Person4", "Comment3"),
         new Comment("Person5", "Comment4"),
         new Comment("Person3", "Comment5")
        };
        //for video 3
-       List<Comment> commentsforVideo3 = new List<Comment>
+       List<Comment> comments3 = new List<Comment>
        {
        new Comment("Person1", "Comment1"),
        new Comment("Person2", "Comment2"),
@@ -45,9 +45,9 @@ class Program
        };
 
         //create 3-4 videos with details
-        Video video1 = new Video ("Title A", "Author A", 900, commentsForVideo1);
-        Video video2 = new Video ("Title B", "Author B", 8000, commentsForVideo2);
-        Video video3 = new Video ("Title C", "Author C", 4550, commentsforVideo3);
+        Video video1 = new Video ("Title A", "Author A", 900, comments1);
+        Video video2 = new Video ("Title B", "Author B", 8000, comments2);
+        Video video3 = new Video ("Title C", "Author C", 4550, comments3);
 
         //   - Put each of these videos in a list.
         List<Video> Videos = new List<Video> { video1, video2, video3};
