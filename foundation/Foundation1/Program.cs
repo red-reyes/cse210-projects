@@ -13,7 +13,7 @@ Write a program that
 
 using System;
 using System.Collections.Generic;
-class Program
+public class Program
 {
     static void Main(string[] args)
     {
