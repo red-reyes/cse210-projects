@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 
-class Video
+public class Video
 {
     //identify the fields to store information 
     private string _title;

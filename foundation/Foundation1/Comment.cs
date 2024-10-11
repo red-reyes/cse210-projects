@@ -6,7 +6,7 @@
 using System;
 using System.Collections.Generic;
 
-class Comment
+public class Comment
 {
     //fields for details in this class
     private string _person;
