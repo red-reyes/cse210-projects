@@ -16,7 +16,7 @@ class Comment
     public Comment(string person, string texts)
     {
         _person = person;
-        _texts = texts;
+        _texts = texts; //comment of the person
     }
 
     //get the person

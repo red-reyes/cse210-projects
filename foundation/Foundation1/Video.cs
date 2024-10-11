@@ -44,14 +44,13 @@ class Video
    
     //count the comments
 
-    public int GetCommentsCount()
+    public int GetCommentsCount() //  have a method to return the number of comments
     {
         return _comments.Count;
     }
 
      /*
     - Each video also has responsibility to store a list of comments
-    - have a method to return the number of comments
     */
     public List<Comment> GetComments()
     {
