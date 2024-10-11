@@ -64,7 +64,7 @@ public class Program
             //Display comments with each video
             foreach (Comment comment in video.GetComments())
             {
-                Console.WriteLine($"-{comment.GetPerson()}:{comment.GetTexts()}");
+                Console.WriteLine($"-{comment.GetPerson()} - '{comment.GetTexts()}'");
             }
             Console.WriteLine("-----------------------------------------------------------------------------");
         }
