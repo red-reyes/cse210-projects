@@ -13,17 +13,17 @@ public class Video
     //identify the fields to store information 
     private string _title;
     private string _author;
-    private int _length; //in seconds
+    private double _length; //in seconds
     //list of comments
     private List<Comment>_comments;
 
     //constructors to initialize Video
-    public Video (string title, string author, int length, List<Comment>comments)
+    public Video (string title, string author, double length, List<Comment>comments)
     {
         _title = title;
         _author = author;
         _length = length;
-        _comments = comments; //initialize comment
+        _comments = comments ?? new List<Comment>(); //initialize comment
     }
 
     //get the title
@@ -31,15 +31,28 @@ public class Video
     {
         return _title;
     }
+
+    public void SetTitle (string title)
+    {
+        _title = title;
+    }
     //get the author
     public string GetAuthor()
     {
         return _author;
     }
+    public void SetAuthor (string author)
+    {
+        _author = author;
+    }
     //get int length
-    public int GetLength()
+    public double GetLength()
     {
         return _length;
+    }
+    public void SetLength(double length)
+    {
+        _length = length;
     }
    
     //count the comments
@@ -56,4 +69,9 @@ public class Video
     {
         return _comments;
     } 
+
+    public void AddComment (Comment comment)
+    {
+        _comments.Add(comment);   
+    }
 }
