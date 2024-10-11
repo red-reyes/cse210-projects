@@ -1,0 +1,105 @@
+Foundation #2: Encapsulation with Online Ordering
+
+-product ordering system
+-sell many products online to a variety of customers
+-need to produce:
+    ***packing labels***
+    ***shipping labels***
+    ***compute final prices for billing***
+
+***Program Specification***
+Write a program that has classes:
+    Product
+    Customer
+    Address
+    Order
+
+***Order***
+    -list of products
+    -a customer
+    ***Responsibilities***
+    -calculate the total cost of the order
+    -return a string for the packing label
+    -return a string for the shipping label
+
+***The final price is calculated as
+    the sum of the total cost of each product plus a one-time shipping cost
+    ***total order price + shipping fee***
+
+This company is based in the USA.
+    If the customer ***lives in the USA shipping cost is $5***
+    If the customer does ***not live in the USA shipping cost is $35***
+
+***A packing label should***
+    list the ***name and product id of each product*** in the order
+
+***A shipping label should***
+    list the ***name and address of the customer***
+
+----------------------------------------------------------------------------------
+***Product***
+    name
+    product id
+    price
+    quantity of each product
+
+The total cost of this product is computed by : 
+    ***price per unit * quantity*** 
+
+----------------------------------------------------------------------------------
+***Customer***
+    name
+    address
+
+The name is a string, but the ***Address is a class***
+The customer should:
+    -a method that can return whether they live in the USA or not. 
+    ***(Hint this should call a method on the address to find this.)***
+
+-------------------------------------------------------------------------------------
+***Address***
+    contains a string for:
+        street address
+        the city
+        state/province
+        country
+            ***The address should have a method that can return whether it is in the USA or not***
+            ***The address should have a method to return a string all of its fields together in one string (with newline characters where appropriate)***
+
+***Other considerations***
+Make sure that ***all member variables are private*** and getters, setters, and constructors are created as needed.
+
+Once you have created these classes
+Write a program that
+    -creates at least two orders with a 2-3 products each
+    -Call the methods to get the:
+        packing label
+        the shipping label
+        total price of the order
+        display the results of these methods.
+
+User Interaction
+***you do not need to create a menu system or a user interface***
+
+Showing Creativity
+***you are not expected to show creativity and exceed the core requirements the way you have in previous projects***
+
+***My expected Output***
+Order 1
+Order Details 
+--------------------------------
+Packing Label
+***GetOrderDetails(product name, id, price, quantity, product in the order)***
+Product Name 1 - Product ID   Unit Price  Qty  Total Cost 
+Product Name 2 - Product ID   Unit Price  Qty  Total Cost
+Product Name 3 - Product ID   Unit Price  Qty  Total Cost
+
+Shipping Label
+***GetCustomerDetails(name and full address)***
+Customer Name
+Street Address, City, State
+USA
+
+***GetGrandTotal(total cost + shipping fee)***
+Grand Total: $00.00 
+$00 + $5 shipping fee
