@@ -31,28 +31,16 @@ public class Video
     {
         return _title;
     }
-
-    public void SetTitle (string title)
-    {
-        _title = title;
-    }
     //get the author
     public string GetAuthor()
     {
         return _author;
     }
-    public void SetAuthor (string author)
-    {
-        _author = author;
-    }
+    
     //get int length
     public double GetLength()
     {
         return _length;
-    }
-    public void SetLength(double length)
-    {
-        _length = length;
     }
    
     //count the comments
@@ -70,8 +58,4 @@ public class Video
         return _comments;
     } 
 
-    public void AddComment (Comment comment)
-    {
-        _comments.Add(comment);   
-    }
 }

@@ -24,17 +24,10 @@ public class Comment
     {
         return _person;
     }
-    public void SetPerson(string person)
-    {
-        _person = person;
-    }
+
     //get the text
     public string GetTexts()
     {
         return _texts;
-    }
-    public void SetTexts(string texts)
-    {
-        _texts = texts;
     }
 }
