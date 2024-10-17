@@ -33,6 +33,5 @@ namespace Learning05
         {
             return $"{_title} by {_author}";
         }
-
     }
 }
