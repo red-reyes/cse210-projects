@@ -42,7 +42,7 @@ namespace Develop05
                 Console.Write("/");
                 Thread.Sleep(500);
                 Console.Write("\b \b");
-                Console.Write("——");
+                Console.Write("—");
                  Thread.Sleep(500);
                 Console.Write("\b \b");
             }

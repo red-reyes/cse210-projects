@@ -42,15 +42,14 @@ namespace Develop05
 
         public void RunExercise(List<string>exercises)
         {
-            int totalDuration = _duration;
+
             int exerciseDuration = 10; // Each exercise runs for 10 seconds
-            int exerciseCount = totalDuration / exerciseDuration; 
+            int exerciseCount = _duration / exerciseDuration; 
 
            for (int i = 0; i < exerciseCount; i++)
            {
                 Console.WriteLine(exercises[i]);
                 DisplayCountdown(exerciseDuration);
-                
            }
            Console.WriteLine("Activity Complete!");
            DisplayEndMessage();

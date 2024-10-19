@@ -1,16 +1,10 @@
-using System.Security.Cryptography.X509Certificates;
-
 namespace Develop05
 {
     public class MeditatingActivity : Activity
     {
-   //make a list of instructions
-        private List<string>instructions;
-        public MeditatingActivity(string userName, int duration)
-        : base(userName, "Meditating Activity", "This activity will help you relax your mind along with a good breathing exercise.", duration)
+        
+        private List<string> instructions = new List<string>
         {
-            instructions = new List<string>
-            {
                 "1. Sit upright comfortably.",
                 "2. Close your eyes.",
                 "3. Breathe deeply.",
@@ -18,25 +12,40 @@ namespace Develop05
                 "5. Be aware of any thoughts you are having.",
                 "6. When your mind wanders, focus on your breath.",
                 "7. Gently open your eyes when you are ready.",
-            };
+        };
+
+        private string music;
+
+        public MeditatingActivity(string userName, int duration) : base(userName, "Meditation Activity", "This activity will help you find calmnes and reduce anxiety.", duration)
+        {
         }
 
-        public void StartMeditate(List<string>instructions)
+        public void DisplayInstructions()
         {
+            Console.WriteLine("Choose & Enter your meditation music: ");
+            string music=Console.ReadLine();
+
             foreach (var instruction in instructions)
             {
-                Console.Write(instruction);
-                DisplayCountdown(10);
+                Console.WriteLine(instruction);
+                Thread.Sleep(3000);
             }
+            Console.WriteLine($"Now playing {music}");
+            Console.WriteLine("Let's start in...");
+            DisplayCountdown(3);
+        }
+        public void RunMusic()
+        {
+        Console.WriteLine("Start meditating...");
+        DisplaySpinner(_duration); // to play music within the user's chosen duration
         }
         public override void Run()
         {
-            Console.WriteLine($"{_userName} please Enter your music title: ");
-            string music = Console.ReadLine();
             DisplayWelcomeMessage();
-            Console.WriteLine($"Now start playing {music}");
-            Console.Write(instructions);
+            DisplayInstructions();
+            RunMusic();
             DisplayEndMessage();
         }
     }
+
 }

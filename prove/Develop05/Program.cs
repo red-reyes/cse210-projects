@@ -34,6 +34,7 @@ namespace Develop05
                         2 => new ReflectionActivity(userName, duration),
                         3 => new ListingActivity(userName, duration),
                         4 => new StretchingActivity(userName, duration),
+                        5 => new MeditatingActivity(userName, duration),
                         _ => null
                     };
                     task?.Run();//'?'calls method/accessing property of what's inside the bracket
