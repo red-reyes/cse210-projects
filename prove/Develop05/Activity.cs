@@ -29,7 +29,7 @@ namespace Develop05
         public void DisplayEndMessage()
         {
             Console.WriteLine($"Congratulations! You completed the {_activityName} for {_duration} seconds. Great job!");
-            DisplaySpinner(5);
+            DisplaySpinner(3);
         }
 
         public void DisplaySpinner(int seconds)
@@ -39,10 +39,10 @@ namespace Develop05
                 Console.Write("|");
                 Thread.Sleep(500);
                 Console.Write("\b \b");
-                Console.Write("-");
+                Console.Write("/");
                 Thread.Sleep(500);
                 Console.Write("\b \b");
-                Console.Write("/");
+                Console.Write("——");
                  Thread.Sleep(500);
                 Console.Write("\b \b");
             }
