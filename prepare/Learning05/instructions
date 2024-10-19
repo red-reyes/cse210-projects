@@ -8,7 +8,7 @@ Consider the following example of Math and writing assignments.
 
 ***Math Assignments***
 A Math assignment may need to:
-    -store the student's name, 
+    -store the student's name,  
     -the topic (for example, "Fractions"), 
     -the textbook section (for example, "7.3"), 
     -the problems from that section (for example, "3-10, 20-21").
