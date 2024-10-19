@@ -14,9 +14,7 @@ namespace Develop05
                 "7. Gently open your eyes when you are ready.",
         };
 
-        private string music;
-
-        public MeditatingActivity(string userName, int duration) : base(userName, "Meditation Activity", "This activity will help you find calmnes and reduce anxiety.", duration)
+        public MeditatingActivity(string userName, int duration) : base(userName, "Meditation Activity", "This activity will help you find calmness and reduce anxiety. It also helps in developing awareness, alertness and kindness.", duration)
         {
         }
 
