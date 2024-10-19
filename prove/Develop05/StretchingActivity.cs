@@ -42,16 +42,18 @@ namespace Develop05
 
         public void RunExercise(List<string>exercises)
         {
-            int countExcercises = exercises.Count;
-            int cycles = _duration / 10;
-            int exerciseIndex = 0;
+            int totalDuration = _duration;
+            int exerciseDuration = 10; // Each exercise runs for 10 seconds
+            int exerciseCount = totalDuration / exerciseDuration; 
 
-            for (int i = 0; i < cycles ; i++)
-            {
-                Console.WriteLine(exercises[exerciseIndex]);
-                exerciseIndex = (exerciseIndex + 1) % countExcercises;
-            }
-            Console.WriteLine("Done!");
+           for (int i = 0; i < exerciseCount; i++)
+           {
+                Console.WriteLine(exercises[i]);
+                DisplayCountdown(exerciseDuration);
+                
+           }
+           Console.WriteLine("Activity Complete!");
+           DisplayEndMessage();
         }
         public override void Run()
         {
@@ -60,24 +62,32 @@ namespace Develop05
             Console.WriteLine("1. Full Body");
             Console.WriteLine("2. Hip");
             Console.WriteLine("3. Stretches Before Running");
+            Console.WriteLine("4. Quit");
             int target = int.Parse(Console.ReadLine());
-            List<string> exercises = target switch
             {
-                1 => _fullBody,
-                2 => _hip,
-                3 => _running,
-                _ => new List<string>()
-            };
+                List<string> exercises = target switch
+                {
+                    1 => _fullBody,
+                    2 => _hip,
+                    3 => _running,
+                    _ => new List<string>()
+                };
 
-            if (exercises.Count > 0)
-            {
-                RunExercise(exercises);
+                if (exercises.Count > 0)
+                {
+                    RunExercise(exercises);
+                }
+                else if (target == 4 )
+                {
+                    Console.WriteLine("Quitting activity...");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Choice.");
+                    DisplaySpinner(3);
+                }
             }
-            else
-            {
-                Console.WriteLine("Invalid Choice.");
-                DisplaySpinner(3);
-            }
+            
         }
 
     }
