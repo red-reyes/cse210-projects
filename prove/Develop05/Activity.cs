@@ -56,7 +56,7 @@ namespace Develop05
                 Thread.Sleep(1000);
                 Console.Write("\b\b");
             }
-            Console.WriteLine();
+            Console.WriteLine(" ");
         }
 
         public abstract void Run();
