@@ -1,9 +1,19 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+
+    public static void Main()
     {
-        Console.WriteLine("Hello Develop06 World!");
+        Console.Write("Enter your username: ");
+        string username = Console.ReadLine();
+        Console.WriteLine($"Hello {username}, Welcome to Eternal Quest!");
+
+        MainMenu menu = new MainMenu();
+        menu.Run();
     }
 }

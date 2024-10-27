@@ -1,127 +1,89 @@
+Hello {userName} Welcome to Eternal Quest!
+
+What would you like to do?
+
+Main Menu
+1. Create a New Goal
+    Goal Type Menu
+    1. Simple Goal
+            What is the task? //task to put in the list
+            Describe the task: //description of the task
+            How many points would you like to get for this task? //input the points to get if task is completed
+    2. Eternal Goal
+            What is the task?
+            Describe the task:
+            How many points would you like to get for this?
+    3. Checklist Goal
+            What is the task?
+            Describe the task:
+            How many points would you like to get for this? 
+                /* partial points = points/times to do. Exaample, 100 points, I say I do this for 5 times so each time I do it I get 20 points until I finish my target count. */
+            How many times would you like to do this?
+
+2. List Goals
+    ***returns DetailsString entered
+    for 1. Simple Goal
+        return [✔] goal name, task name, description, points //with ✔ if done
+    for 2. Eternal Goal
+        return [ ] goal name, task name, description, points
+    for 3. Checklist Goal
+        return [ ] goal name, task name, description, points, counter
+            //automatic bonus points of 500 when count done = target count
+3. Save Goals
+        Save the List as txt,
+        Saves As (file name): 
+4. Load Goals
+        Load a txt file: 
+        Open a file (enter the file name):
+        if not found: Invalid Input or File Does Not Exist
+5. Record Event
+        What task did you do?
+            Check the List if entry = list no.
+        // Give the corresponding points to the points counter
+        // Every 1000 points returns reward. (Congratulations! You got 1000 points! This could be exchanged to our store as a discount voucher!)
+6. Quit
 
 
-parent class: Goal
 
-_userName
-_activityName
-_description
-_points (varies per child class)
-
-constructors
-get, set
-
-shared methods
-
-DisplayWelcomeMessgae
-    - Hello, {_userName}! Welcome to {_activityName}. {_description}. 
+***simple goals**
+    -mark complete
+    -user assigns points
     
-    Each task or goal that you accomplish gives you 50 point and above. For every 1100 points you earn, you will get $1 discount coupon useable for online purchases on WowGoal Online Store!
+***eternal goals**
+    -records them, they gain some value.
+    -points are assigned randomly by 50 from 50 - 500 only points list such as:
+        50 
+        100 
+        150 
+        200 
+        250 
+        300
+        350
+        400
+        450
+        500
+***checklist goal***
+    -certain number of times to be complete
+    -each time the user records this goal they gain some value,
+    ***but*** 
+    -when they achieve the desired amount, they get an extra bonus***.
+        - the extra bonuse would be random by 200 from 200 - 1000
+        200
+        400
+        600
+        800
+        1000
     
-    The points you gain today will not carry over the next day so be productive to get the daily rewards!
+-Display the user's score.
+-create new goals of any type***.
+-to record an event 
+-accomplished a goal
+-receive points
 
-GetTotalPoins : void
-    Simple Goals : 100 points/entry
-    Eternal Goals : 250 points/chapter
-    Check List Goals
-        1 = 150
-        2 = 100
-        3 = 150
-        4 = 50
-        5 = 100
-        6 = 100
-        7 = 200
-        8 = 150
-    All Goals
-        Simple Goals totalPoints + Eternal Goals totalPoints + CheckListGoals totalPoints
+Show a list of the goals
 
-    GetReward : void
-        1000 points = $1 coupon
-        2000 points = $2 coupon
-        3000 points = $3 coupon
-        ....
-        reward = totalPoints/1000
-        
-        if reward >= 1   
-            You won ${reward} discount coupon!
+This list should show ***indicate whether the goal has been completed or not
+ 
+- (for example [ ] compared to [✔]), and for checklist goals it should show how many times the goal has been completed (for example Completed 2/5 times).
 
-            This coupon is valid until (30 days from Now). (Terms and Conditions apply)
-        else
-            No reward, you did not reach 1000 points. That's okay! Try again tomorrow.
-    
-    DisplayClosingMessage
-    You got {totalPoints} points! 
-
-------------------------------------------------------------
-
-SimpleGoal : Goal
-_userName
-_activityName
-_description
-_points (100 per entry)
-
-_list of entries
-    count entries
-
-GetTotalPoints
-    totalPoints = count of entries marked yes * 100
-
-    while(yes) //
-    add 100
--------------------------------------------------------
-
-EternalGoal : Goal
-
-_userName
-_activityName
-_description
-_points (250 per chapter)
-_bookName
-_chapter : int
-
-1 chapter = 250 points
-
-GetTotalPoints
-    totalPoints = chapter * 250
-
--------------------------------------------------------
-
-CheckListGoal : Goal
-
-_userName
-_activityName
-_description
-_points
-
-1 = 150
-2 = 100
-3 = 150
-4 = 50
-5 = 100
-6 = 100
-7 = 200
-8 = 150
-
-List
-1. Pray 
-2. Drink at Least 7 Glasses of Water
-3. Finish Work on Time
-4. Afternoon Nap
-5. Eat Breakfast
-6. No Sugar Drinks and Meals
-7. Sleep at Least 7 Hours
-8. 15 minutes walk
-
-totalPoints (points +=)
-    Did you:
-    1. Pray (yes/no)
-        if yes
-            points = 150
-        else 
-            points = 0
-    2. Drink at Least 7 Glasses of Water
-        if yes
-        points = 100
-        else 
-        points = 0
-
-    so on...
+Allow the user's goals and their current score to be saved and loaded.
