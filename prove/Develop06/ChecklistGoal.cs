@@ -3,23 +3,23 @@ using System;
 public class ChecklistGoal : Goal
 {
     private int _amountCompleted;
-    private int _targetAmount;
+    private int _targetCount;
     private double _bonus = 500;
 
-    public ChecklistGoal(string goalType, string taskName, string taskdescription, double points, int targetAmount, double bonus) : base(goalType, taskName, taskdescription, points)
+    public ChecklistGoal(string goalType, string taskName, string taskdescription, double points, int targetCount, double bonus) : base(goalType, taskName, taskdescription, points)
     {
         _amountCompleted = 0;
-        _targetAmount = targetAmount;
+        _targetCount = targetCount;
         _bonus = bonus;
     }
 
     public int GetTargetAmount()
     {
-        return _targetAmount;
+        return _targetCount;
     }
     public void SetTargetAmount(int targetAmount)
     {
-        _targetAmount = targetAmount;
+        _targetCount = targetAmount;
     }
     public double GetBonus()
     {
@@ -31,23 +31,23 @@ public class ChecklistGoal : Goal
     }
     public override void RecordEvent()
     {
-       if (_amountCompleted < _targetAmount)
+       if (_amountCompleted < _targetCount)
        {
         _amountCompleted++;
        }
     }
     public override bool IsComplete()
     {
-        return _amountCompleted >= _targetAmount;
+        return _amountCompleted >= _targetCount;
     }
 
     public override string GetDetailsString()
     {
-       return $"{(_amountCompleted >= _targetAmount ? "[✔]" : "[ ]")} {_taskName} - {_taskdescription} [{_amountCompleted}/{_targetAmount}]";
+       return $"{base.GetDetailsString()} [{_amountCompleted}/{_targetCount}]";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"{_goalType} : {_taskName} : {_taskdescription}, {_points}, {_amountCompleted}/{_targetAmount}, {_bonus}";
+        return $"{_goalType} : {_taskName} : {_taskdescription}, {_points}, {_amountCompleted}/{_targetCount}, {_bonus}";
     }
 }

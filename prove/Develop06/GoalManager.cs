@@ -24,7 +24,7 @@ public class GoalManager
         while (running)
         {
         Console.WriteLine($"1. Create New Goal");
-        Console.WriteLine($"2. List New Task");
+        Console.WriteLine($"2. List Task");
         Console.WriteLine($"3. Save Goal");
         Console.WriteLine($"4. Load Goal");
         Console.WriteLine($"5. Update Goal");//record event
@@ -141,13 +141,14 @@ public class GoalManager
         for (int i = 0; i < goals.Count; i++)
         {
             var goal = goals[i];
-            Console.WriteLine($"[{(goal.IsComplete() ? "✔" : " ")}] {i + 1}. {goal.GetDetailsString()}");
+            string status = goal.IsComplete() ? "✔" : " ";
+            Console.WriteLine($"[{status}] {i+1}.{goal.GetDetailsString()}");
         }
     }
     public void SaveGoal()
     {
         //save string representation to a txt file as goal.txt
-        string filePath = Path.Combine(Directory.GetCurrentDirectory(), "goal.txt");
+        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "goal.txt");
         try
         {
 
@@ -166,7 +167,7 @@ public class GoalManager
     public void LoadGoal()
     {
         //load goal.txt
-        string filePath = Path.Combine(Directory.GetCurrentDirectory(), "goal.txt");
+         string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "goal.txt");
         if (!File.Exists("goal.txt"))
         {
             Console.WriteLine("No saved goals found.");
