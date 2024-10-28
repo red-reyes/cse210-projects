@@ -148,7 +148,8 @@ public class GoalManager
     public void SaveGoal()
     {
         //save string representation to a txt file as goal.txt
-        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "goal.txt");
+        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "goal.txt");
+        
         try
         {
 
@@ -167,7 +168,7 @@ public class GoalManager
     public void LoadGoal()
     {
         //load goal.txt
-         string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "goal.txt");
+         string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "goal.txt");
         if (!File.Exists("goal.txt"))
         {
             Console.WriteLine("No saved goals found.");
