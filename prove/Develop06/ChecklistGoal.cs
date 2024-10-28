@@ -1,38 +1,53 @@
+using System;
+
 public class ChecklistGoal : Goal
 {
-    private int _targetCount;
-    private int _currentCount;
-    private int _completedCount;
+    private int _amountCompleted;
+    private int _targetAmount;
+    private double _bonus = 500;
 
-    public ChecklistGoal(string taskName, string description, int points, int targetCount, int completedCount) : base(taskName, description, points)
+    public ChecklistGoal(string goalType, string taskName, string taskdescription, double points, int targetAmount, double bonus) : base(goalType, taskName, taskdescription, points)
     {
-        _targetCount = targetCount;
-        _currentCount = 0;
-        _completedCount = completedCount;
+        _amountCompleted = 0;
+        _targetAmount = targetAmount;
+        _bonus = bonus;
     }
 
-    public override string DetailsString()
+    public int GetTargetAmount()
     {
-        return $"[ ] Checklist Goal - {_taskName}: {_description} ({_points} points, Completed {_currentCount}/{_targetCount} times)";
+        return _targetAmount;
+    }
+    public void SetTargetAmount(int targetAmount)
+    {
+        _targetAmount = targetAmount;
+    }
+    public double GetBonus()
+    {
+        return _bonus;
+    }
+    public void SetBonus(double bonus)
+    {
+        _bonus = bonus;
+    }
+    public override void RecordEvent()
+    {
+       if (_amountCompleted < _targetAmount)
+       {
+        _amountCompleted++;
+       }
+    }
+    public override bool IsComplete()
+    {
+        return _amountCompleted >= _targetAmount;
     }
 
-    public override string SaveString()
+    public override string GetDetailsString()
     {
-        return $"ChecklistGoal|{_taskName}|{_description}|{_points}|{_targetCount} |{_completedCount}";
+       return $"{(_amountCompleted >= _targetAmount ? "[✔]" : "[ ]")} {_taskName} - {_taskdescription} [{_amountCompleted}/{_targetAmount}]";
     }
 
-    public override int RecordEvent(Random random)
+    public override string GetStringRepresentation()
     {
-        if (_currentCount < _targetCount)
-        {
-            _currentCount++;
-            if (_currentCount == _targetCount)
-            {
-                _isCompleted = true;
-                return _points + random.Next(1, 6) * 200; // add bonus points
-            }
-            return _points / _targetCount;
-        }
-        return 0;
+        return $"{_goalType} : {_taskName} : {_taskdescription}, {_points}, {_amountCompleted}/{_targetAmount}, {_bonus}";
     }
 }

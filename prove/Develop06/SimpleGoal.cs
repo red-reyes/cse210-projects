@@ -1,24 +1,36 @@
+using System;
 public class SimpleGoal : Goal
 {
-    public SimpleGoal(string taskName, string description, int points) : base(taskName, description, points) { }
+    private bool _isComplete;
 
-    public override string DetailsString()
+    public SimpleGoal (string goalType, string taskName, string taskdescription, double points) : base (goalType, taskName, taskdescription, points)
     {
-        return $"{(_isCompleted ? "[✔]" : "[ ]")} Simple Goal - {_taskName}: {_description} ({_points} points)";
+        _isComplete = false;
     }
 
-    public override string SaveString()
+
+    public override void RecordEvent()
     {
-        return $"SimpleGoal|{_taskName}|{_description}|{_points}";
+        _isComplete = true;
+        Console.WriteLine($"'{_taskName}' completed! You've earned {_points} points.");
+        //this method should work with "Update Goal" in the menu
+        /*
+        it should update the list with a check if task is complete
+        Current Score: 0
+        */
     }
 
-    public override int RecordEvent(Random random)
+    public override bool IsComplete()
     {
-        if (!_isCompleted)
-        {
-            _isCompleted = true;
-            return _points;
-        }
-        return 0;
+        return _isComplete;
+    }
+
+    public override string GetDetailsString()
+    {
+         return $"{(_isComplete ? "[✔]" : "[ ]")} {_taskName} - {_taskdescription}";
+    }
+    public override string GetStringRepresentation()
+    {
+        return $"{_goalType},{_taskName} : {_taskdescription}, {_points}, {_isComplete}";
     }
 }

@@ -1,22 +1,23 @@
+using System;
+
 public class EternalGoal : Goal
 {
-    public EternalGoal(string taskName, string description, int points) : base(taskName, description, points) 
+    public EternalGoal (string goalType, string taskName, string taskdescription, double points) : base (goalType, taskName, taskdescription, points)
     {
         
     }
 
-    public override string DetailsString()
+    public override void RecordEvent()
     {
-        return $"[ ] Eternal Goal - {_taskName}: {_description} (Random points)";
+        
     }
 
-    public override string SaveString()
+    public override bool IsComplete()
     {
-        return $"EternalGoal|{_taskName}|{_description}|{_points}";
+        return false;
     }
-
-    public override int RecordEvent(Random random)
+    public override string GetStringRepresentation()
     {
-        return random.Next(1, 11) * 50; // random points between 50 and 500
+        return $"{_goalType},{_taskName} : {_taskdescription}, {_points}";
     }
 }

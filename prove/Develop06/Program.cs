@@ -1,19 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
-public class Program
+class Program
 {
-
-    public static void Main()
-    {
-        Console.Write("Enter your username: ");
-        string username = Console.ReadLine();
-        Console.WriteLine($"Hello {username}, Welcome to Eternal Quest!");
-
-        MainMenu menu = new MainMenu();
-        menu.Run();
-    }
+       static void Main(string[] args)
+       {
+              Console.WriteLine("Enter user name: ");
+              string username = Console.ReadLine();
+              Console.WriteLine($"Hello {username}, welcome to Eternal Quest!\nSelect a number to perform action: ");
+              GoalManager goalManager = new GoalManager();
+              goalManager.Start();
+       }
 }
