@@ -67,7 +67,8 @@ public class GoalManager
         }
         else if(choice == 7)
         {
-            Console.WriteLine("Have a niceda! Goodbye!");
+            Console.WriteLine("Exiting Eternal Quest App!");
+            DisplayCountdown(3);
             break;
         }
 
@@ -92,10 +93,7 @@ public class GoalManager
         if (type == 4) return;
         if (type == 5) 
         {
-            Console.WriteLine("Exiting Create Goal.");
-            DisplayCountdown(3);
-            Environment.Exit(0);
-        }
+            Console.WriteLine("Exiting Eternal Quest App");
         
         Console.WriteLine("Enter the task name: ");
         string taskName = Console.ReadLine();
@@ -133,6 +131,7 @@ public class GoalManager
             goals.Add(goal);
             Console.WriteLine($"Goal '{goal.GetDetailsString()}' created.");
         }
+    }
     }
 
     public void ListNewTask()
