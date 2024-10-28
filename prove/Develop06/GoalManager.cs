@@ -67,7 +67,7 @@ public class GoalManager
         }
         else if(choice == 7)
         {
-            running = false;
+            Console.WriteLine("Have a niceda! Goodbye!");
             break;
         }
 
@@ -80,6 +80,7 @@ public class GoalManager
 
     public void CreateGoal()
     {   
+        DisplaySpinner(5);
         Console.WriteLine("Select Goal Type: ");
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
@@ -89,8 +90,13 @@ public class GoalManager
         int type = int.Parse(Console.ReadLine());
 
         if (type == 4) return;
-        if (type == 5) Environment.Exit(0);
-
+        if (type == 5) 
+        {
+            Console.WriteLine("Exiting Create Goal.");
+            DisplayCountdown(3);
+            Environment.Exit(0);
+        }
+        
         Console.WriteLine("Enter the task name: ");
         string taskName = Console.ReadLine();
         Console.WriteLine("Enter task description: ");
@@ -132,6 +138,7 @@ public class GoalManager
     public void ListNewTask()
     {
         //add more tasks for chosen Goal Type from CreateGoal
+        DisplaySpinner(3);
         if (goals.Count == 0)
         {
             Console.WriteLine("No Goals Saved");
@@ -159,7 +166,9 @@ public class GoalManager
             {
                 writer.WriteLine(goal.GetStringRepresentation());
             }
-            Console.WriteLine("Goals saved to goal.txt");
+            Console.WriteLine("Goals saving to goal.txt");
+            DisplaySpinner(5);
+            Console.WriteLine("Success!");
         }
         catch (Exception ex)
         {
@@ -169,7 +178,7 @@ public class GoalManager
     public void LoadGoal()
     {
         //load goal.txt
-         string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "goal.txt");
+        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "goal.txt");
         if (!File.Exists("goal.txt"))
         {
             Console.WriteLine("No saved goals found.");
@@ -222,6 +231,7 @@ public class GoalManager
             }
         }
         Console.WriteLine("Goals loaded from goal.txt");
+        DisplaySpinner(5);
         ListNewTask();
     }
     catch (Exception ex)
@@ -269,5 +279,31 @@ public class GoalManager
         //_score is the total points from all accomplished tasks
         Console.WriteLine($"Current Total Score: {totalScore}");
         ListNewTask();
+    }
+
+    public void DisplaySpinner(int seconds)
+    {
+        for (int i = 0; i < seconds; i++)
+        {
+            Console.Write("|");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("/");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("—");
+                Thread.Sleep(500);
+            Console.Write("\b \b");
+        }
+    }
+    public void DisplayCountdown(int seconds)
+    {
+        for (int i = seconds; i > 0; i--)
+        {
+            Console.Write($"{i} ");
+            Thread.Sleep(1000);
+            Console.Write("\b\b");
+        }
+        Console.WriteLine(" ");
     }
 }
