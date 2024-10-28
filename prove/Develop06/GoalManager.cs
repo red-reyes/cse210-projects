@@ -94,6 +94,9 @@ public class GoalManager
         if (type == 5) 
         {
             Console.WriteLine("Exiting Eternal Quest App");
+            DisplayCountdown(3);
+            Console.WriteLine("Goodbye!");
+        }
         
         Console.WriteLine("Enter the task name: ");
         string taskName = Console.ReadLine();
@@ -131,7 +134,6 @@ public class GoalManager
             goals.Add(goal);
             Console.WriteLine($"Goal '{goal.GetDetailsString()}' created.");
         }
-    }
     }
 
     public void ListNewTask()
