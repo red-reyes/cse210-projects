@@ -80,7 +80,7 @@ public class GoalManager
 
     public void CreateGoal()
     {   
-        DisplaySpinner(5);
+        DisplaySpinner(3);
         Console.WriteLine("Select Goal Type: ");
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
@@ -167,7 +167,7 @@ public class GoalManager
                 writer.WriteLine(goal.GetStringRepresentation());
             }
             Console.WriteLine("Goals saving to goal.txt");
-            DisplaySpinner(5);
+            DisplaySpinner(3);
             Console.WriteLine("Success!");
         }
         catch (Exception ex)
@@ -231,7 +231,7 @@ public class GoalManager
             }
         }
         Console.WriteLine("Goals loaded from goal.txt");
-        DisplaySpinner(5);
+        DisplaySpinner(3);
         ListNewTask();
     }
     catch (Exception ex)
