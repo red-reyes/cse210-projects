@@ -68,6 +68,7 @@ public class GoalManager
         else if(choice == 7)
         {
             running = false;
+            break;
         }
 
         else
@@ -141,7 +142,7 @@ public class GoalManager
         for (int i = 0; i < goals.Count; i++)
         {
             var goal = goals[i];
-            string status = goal.IsComplete() ? "✔" : " ";
+            string status = goal.IsComplete() ? "X" : " ";
             Console.WriteLine($"[{status}] {i+1}.{goal.GetDetailsString()}");
         }
     }
@@ -237,17 +238,15 @@ public class GoalManager
         }
         Console.WriteLine("What task did you accomplish? ");
         ListNewTask();
+ 
+        int taskIndex = int.Parse(Console.ReadLine()) - 1;
 
-        Console.WriteLine("Enter the task number you accomplished: ");
-
-        if (!int.TryParse(Console.ReadLine(), out int taskIndex) || taskIndex < 1 || taskIndex >= goals.Count)
+        if (taskIndex < 0 || taskIndex >= goals.Count)
         {
             Console.WriteLine("Invalid task number.");
 
             return;
         }
-
-        taskIndex -=1;
 
         var selectedGoal = goals[taskIndex];
         if (!selectedGoal.IsComplete())

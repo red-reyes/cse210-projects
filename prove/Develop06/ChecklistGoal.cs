@@ -13,22 +13,6 @@ public class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
-    public int GetTargetAmount()
-    {
-        return _targetCount;
-    }
-    public void SetTargetAmount(int targetAmount)
-    {
-        _targetCount = targetAmount;
-    }
-    public double GetBonus()
-    {
-        return _bonus;
-    }
-    public void SetBonus(double bonus)
-    {
-        _bonus = bonus;
-    }
     public override void RecordEvent()
     {
        if (_amountCompleted < _targetCount)
