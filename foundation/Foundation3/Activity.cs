@@ -34,7 +34,7 @@ public abstract class Activity
             Console.WriteLine("Timer stopped at: " + _endTime.ToString("HH:mm:ss"));
         }
         else
-        {
+        {   
             Console.WriteLine("Returning to Main Menu.");
         }
     }
